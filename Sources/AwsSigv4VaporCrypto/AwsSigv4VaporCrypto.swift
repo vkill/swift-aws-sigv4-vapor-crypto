@@ -2,6 +2,9 @@ import AwsSigv4
 import Crypto
 
 public struct AwsSigv4VaporCrypto: AwsSigv4Crypto {
+    public init() {
+    }
+
     public func sha256Digest(_ value: Data) throws -> Data {
         return try SHA256.hash(value)
     }

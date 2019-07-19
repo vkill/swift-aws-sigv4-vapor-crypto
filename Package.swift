@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "AwsSigv4VaporCrypto", targets: ["AwsSigv4VaporCrypto"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/vkill/swift-aws-sigv4.git", .branch("master")),
+        .package(url: "https://github.com/vkill/swift-aws-sigv4.git", .exact("0.1.0")),
         .package(url: "https://github.com/vapor/crypto.git", from: "3.0.0"),
     ],
     targets: [

@@ -1,15 +1,15 @@
-import AwsSigv4
-import Crypto
+import CryptoKit
+import struct Foundation.Data
 
 public struct AwsSigv4VaporCrypto: AwsSigv4Crypto {
     public init() {
     }
 
     public func sha256Digest(_ value: Data) throws -> Data {
-        return try SHA256.hash(value)
+        return try Data(SHA256.hash(.data(value)).bytes())
     }
 
     public func hmacSHA256Digest(_ key: Data, _ value: Data) throws -> Data {
-        return try HMAC.SHA256.authenticate(value, key: key)
+        return try Data(HMAC.SHA256.authenticate(.data(value), key: .data(key)).bytes())
     }
 }
